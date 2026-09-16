@@ -18,7 +18,6 @@ public class Category {
 
     // di intellij idea bisa menggunakan shortcut
     // 'alt + insert' untuk membuat getter dan setter.
-    // (arahkan cursor ke field yang ingin dibuat getter dan setternya).
 
     // keuntungan menggunakan getter dan setter adalah kita bisa membuat validasi
     // untuk memastikan data yang dimasukkan sesuai dengan kebutuhan.
