@@ -1,43 +1,55 @@
 package oop02;
 
-// Jika ingin menambah class lain dalam 1 file yang sama maka classnya tidak boleh public
+/**
+ * oop02: Constructor & Constructor Overloading
+ *
+ * Aturan Java:
+ * - Dalam satu file .java, hanya diperbolehkan ada maksimal satu class 'public',
+ *   dan namanya harus sama persis dengan nama file.
+ * - Class tambahan dalam file yang sama tidak boleh menggunakan modifier 'public'
+ *   (menggunakan default / package-private).
+ */
 class Person {
     String name;
     int age;
 
-    // ini adalah constructor, method yang akan dipanggil ketika membuat object
-    Person(String name, int age){ // bisa memiliki parameter ataupun tidak
-        // this merepresentasikan object yang sedang dibuat yaitu Person sendiri.
+    // 1. Constructor Utama:
+    // Method khusus yang otomatis dijalankan saat objek pertama kali dibuat ('new').
+    // Tidak memiliki return type (bahkan bukan void) dan namanya sama persis dengan nama class.
+    Person(String name, int age) {
+        // Kata kunci 'this' merepresentasikan instance objek saat ini.
+        // Digunakan untuk membedakan antara field objek dan parameter method yang memiliki nama sama (variable shadowing).
         this.name = name;
         this.age = age;
     }
 
-    // constructor overloading
-    // overloading adalah kemampuan membuat method dengan nama yang sama tetapi memiliki parameter yang berbeda
-    Person(String name){
-        // dengan menggunakan this() maka kita akan memanggil constructor pada line 9
-        this(name, 0);
-
+    // 2. Constructor Overloading:
+    // Kemampuan membuat lebih dari satu constructor dalam satu class dengan parameter berbeda (jumlah/tipe data).
+    Person(String name) {
+        // 'this(...)' digunakan untuk memanggil constructor lain dalam class yang sama.
+        // Pemanggilan ini harus menjadi baris instruksi pertama di dalam constructor.
+        this(name, 0); // Memanggil Person(String, int)
     }
-    // disini bahkan tidak memiliki parameter sama sekali
-    Person(){
-        this(null, 0);
+
+    // 3. Constructor tanpa parameter (default constructor versi kustom)
+    Person() {
+        this(null, 0); // Memanggil Person(String, int)
     }
 }
 
 public class Main {
-    static void main(){
-       // membuat person dengan argumen wajib
-       Person orang = new Person("John", 20) ;
-       System.out.println(orang.name + " " + orang.age);
+    static void main() {
+        // Memanggil constructor dengan 2 parameter: Person(String, int)
+        Person orang = new Person("John", 20);
+        System.out.println(orang.name + " " + orang.age);
 
+        // Memanggil constructor tanpa parameter: Person()
+        Person orang2 = new Person();
+        orang2.name = "Bambang";
+        System.out.println(orang2.name);
 
-       // jika kita tidak memiliki parameter sama sekali maka akan memanggil constructor tanpa parameter yang sudah dibuat
-       Person orang2 = new Person();
-       orang2.name = "Bambang";
-       System.out.println(orang2.name);
-
-       Kucing kucingBambang = new Kucing("Cici", orang2);
-       kucingBambang.meow();
+        // Membuat objek Kucing dari class yang berada di file Hewan.java (package yang sama)
+        Kucing kucingBambang = new Kucing("Cici", orang2);
+        kucingBambang.meow();
     }
 }
