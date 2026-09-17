@@ -5,6 +5,8 @@ package oop07;
 
 // Class bisa mengimplementasikan lebih dari 1 interface
 public class Avanza implements Car, JapaneseCar{
+    String brand = "Avanza";
+
     @Override
     public void starterVoice(){
         System.out.println("Konnichiwa! wkwkwk");
@@ -18,5 +20,11 @@ public class Avanza implements Car, JapaneseCar{
     @Override
     public int getTier(){
         return 4;
+    }
+
+    // overriding method toString() example
+    @Override
+    public String toString(){
+        return "This is: " + brand + " Car";
     }
 }

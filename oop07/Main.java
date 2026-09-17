@@ -8,5 +8,10 @@ public class Main {
         // System.out.println(mobilBaru.info()); // error
         System.out.println(mobilBaru.getTier());
         System.out.println(mobilBaru.driftingAbility());
+
+        // pada saat kita menggunakan println pada objek,
+        // sebenarnya kita memanggil method toString()
+        System.out.println(mobilBaru); // maka hasilnya adalah: This is: Avanza Car
+
     }
 }
