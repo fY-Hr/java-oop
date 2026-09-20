@@ -30,6 +30,14 @@ package oop07;
     jadi static method tidak bisa dioverride
 */
 
+/*
+    public, default (pada saat tidak menuliskan apa apa), private, protected adalah access modifier,
+    static, abstract dan final adalah non-access modifier.
+
+    urutan penulisan biasanya diawali dengan access modifier,
+    kemudian non-access modifier, dan terakhir tipe data dan nama method/field.
+*/
+
 interface JapaneseCar {
     void starterVoice();
 }
@@ -53,7 +61,8 @@ public interface Car extends Vehicle {
 
     int getTier();
 
-    // ini adalah contoh default method
+    // ini adalah contoh default method, bukan default (tidak menuliskan apa apa)
+    // ini khusus ada di interface, memungkinkan untuk membuat method yang memiliki blok kode dan tidak abstrak
     default boolean driftingAbility(){
         return false;
     }
@@ -74,6 +83,7 @@ public interface Car extends Vehicle {
     // dan jika subclass dari class tsb mendeklaraasikan static method
     // yang namanya sama, maka akan disebut method hiding.
     // ini hanya berlaku pada STATIC METHOD, dan tidak ke method biasa.
+
 }
 
 

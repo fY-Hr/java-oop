@@ -1,9 +1,7 @@
 package oop11;
 
-// interface disini akan digunakan untuk membuat anonymous class seagai contoh.
+// Interface sebagai kontrak untuk contoh implementasi Anonymous Class
 public interface ISO {
     void isoType();
     void requirements();
 }
-
-
